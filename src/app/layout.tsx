@@ -1,6 +1,7 @@
 import React from 'react';
 import './globals.css'
 import { Titillium_Web } from 'next/font/google'
+import Image from 'next/image';
 
 const font = Titillium_Web({
   weight: ['200', '300', '400', '600', '700'], 
@@ -21,8 +22,8 @@ const NAV_LINKS: Array<{ name: string, link: string }> = [
 ];
 
 const SOCIAL_LINKS: Array<{ link: string, imgSrc: string, imgAlt: string }> = [
-  {link: "https://github.com/kaskaz", imgSrc: "images/github.png", imgAlt: "github"},
-  {link: "https://www.linkedin.com/in/nunocascalho/", imgSrc: "images/linkedin.png", imgAlt: "linkedin"}
+  {link: "https://github.com/kaskaz", imgSrc: "/images/github.png", imgAlt: "github"},
+  {link: "https://www.linkedin.com/in/nunocascalho/", imgSrc: "/images/linkedin.png", imgAlt: "linkedin"}
 ];
 
 const MapIcon = () => {
@@ -48,7 +49,7 @@ const NavButton = ({name, link}: {name: string, link: string}) => {
 const SocialLink = ({link, imgSrc, imgAlt}: {link: string, imgSrc: string, imgAlt: string}) => {
   return (
     <a href={link} target="_blank" className='opacity-70 hover:opacity-90 w-8'>
-      <img src={imgSrc} alt={imgAlt} />
+      <Image src={imgSrc} alt={imgAlt} />
     </a>
   );
 };
@@ -75,8 +76,8 @@ export default function RootLayout({
           <div className="flex flex-col content-start space-y-3">
             <div>
               <a href="/" className='block m-auto w-fit h-fit rounded-full'>
-                <img
-                  src="images/me.jpg"
+                <Image
+                  src="/images/me.jpg"
                   alt="me"
                   className="rounded-full border-2 border-solid border-slate-300 w-52 h-52 object-cover object-left"
                 />

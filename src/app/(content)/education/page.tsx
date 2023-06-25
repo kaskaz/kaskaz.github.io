@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function Education() {
   return (
     <>
       <h1 className="text-2xl font-bold mb-5">Education</h1>
-      <img src="images/logo-isel.png" alt="logo-isel" className="w-40 ml-48 mb-5" />
+      <Image src="/images/logo-isel.png" alt="logo-isel" className="w-40 ml-48 mb-5" />
       <ul className="text-lg">
 				<li className="mb-3">
           <h2 className="text-xl font-semibold">Licentiate degree in Electronics, Computer Systems and Telecommunications</h2>
