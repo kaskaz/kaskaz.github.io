@@ -14,6 +14,14 @@ export const metadata = {
   description: 'My personal webpage created with NextJs and Tailwind CSS',
 }
 
+type SocialLinkProps = {
+  link: string,
+  imgSrc: string,
+  imgAlt: string,
+  width: number,
+  height: number
+}
+
 const NAV_LINKS: Array<{ name: string, link: string }> = [
   {name: "About me", link: "aboutme"},
   {name: "Education", link: "education"},
@@ -21,9 +29,9 @@ const NAV_LINKS: Array<{ name: string, link: string }> = [
   {name: "Projects", link: "projects"}
 ];
 
-const SOCIAL_LINKS: Array<{ link: string, imgSrc: string, imgAlt: string }> = [
-  {link: "https://github.com/kaskaz", imgSrc: "/images/github.png", imgAlt: "github"},
-  {link: "https://www.linkedin.com/in/nunocascalho/", imgSrc: "/images/linkedin.png", imgAlt: "linkedin"}
+const SOCIAL_LINKS: Array<SocialLinkProps> = [
+  {link: "https://github.com/kaskaz", imgSrc: "/images/github.png", imgAlt: "github", width: 64, height: 64 },
+  {link: "https://www.linkedin.com/in/nunocascalho/", imgSrc: "/images/linkedin.png", imgAlt: "linkedin", width: 77, height: 66 }
 ];
 
 const MapIcon = () => {
@@ -46,10 +54,10 @@ const NavButton = ({name, link}: {name: string, link: string}) => {
   );
 };
 
-const SocialLink = ({link, imgSrc, imgAlt}: {link: string, imgSrc: string, imgAlt: string}) => {
+const SocialLink = ({link, imgSrc, imgAlt, width, height}: SocialLinkProps) => {
   return (
     <a href={link} target="_blank" className='opacity-70 hover:opacity-90 w-8'>
-      <Image src={imgSrc} alt={imgAlt} />
+      <Image src={imgSrc} alt={imgAlt} width={width} height={height} />
     </a>
   );
 };
@@ -79,6 +87,7 @@ export default function RootLayout({
                 <Image
                   src="/images/me.jpg"
                   alt="me"
+                  width={4616} height={3462}
                   className="rounded-full border-2 border-solid border-slate-300 w-52 h-52 object-cover object-left"
                 />
               </a>
