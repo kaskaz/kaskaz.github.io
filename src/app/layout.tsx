@@ -2,6 +2,7 @@ import React from 'react';
 import './globals.css'
 import { Titillium_Web } from 'next/font/google'
 import Image from 'next/image';
+import BackgroundedLayout from './components/BackgroundedLayout';
 
 const font = Titillium_Web({
   weight: ['200', '300', '400', '600', '700'], 
@@ -62,45 +63,66 @@ const SocialLink = ({link, imgSrc, imgAlt, width, height}: SocialLinkProps) => {
   );
 };
 
+const Header = () => {
+  return (
+    <header>
+      <a
+        href='https://goo.gl/maps/EDsfKxnufbCRsVbR6'
+        target='_blank'
+        className='fixed top-3.5 right-4 flex space-x-2 text-white bg-black bg-opacity-50 rounded p-1.5'
+      >
+        <MapIcon />
+        <span>Sobral da Adiça, Moura (Portugal)</span>
+      </a>
+    </header>
+  );
+};
+
+const Content = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <main className="fixed top-28 flex w-full ml-20 space-x-48 text-gray-500">
+      <div className="flex flex-col content-start space-y-3">
+        <div>
+          <a href="/" className='block m-auto w-fit h-fit rounded-full'>
+            <Image
+              priority
+              src="/me.jpg"
+              alt="me"
+              width={4616} height={3462}
+              className="rounded-full border border-solid border-slate-300 w-52 h-52 object-cover object-left"
+            />
+          </a>
+        </div>
+        <div className="flex flex-row space-x-2">
+          {NAV_LINKS.map((props,i) => <NavButton key={i} {...props} />)}
+        </div>
+        <div className="flex flex-row space-x-2 h-8 justify-center items-center">
+          {SOCIAL_LINKS.map((props,i) => <SocialLink key={i} {...props} />)}
+        </div>
+      </div>
+      {children}
+    </main>
+  );
+};
+
 export default function RootLayout({
   children
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='select-none'>
       <body className={font.className}>
-        <header>
-          <a
-            href='https://goo.gl/maps/EDsfKxnufbCRsVbR6'
-            target='_blank'
-            className='fixed top-3.5 right-4 flex space-x-2 text-white bg-black bg-opacity-50 rounded p-1.5'
-          >
-            <MapIcon />
-            <span>Sobral da Adiça, Moura (Portugal)</span>
-          </a>
-        </header>
-        <main className="fixed top-28 flex w-full ml-20 space-x-48 text-gray-500">
-          <div className="flex flex-col content-start space-y-3">
-            <div>
-              <a href="/" className='block m-auto w-fit h-fit rounded-full'>
-                <Image
-                  src="/me.jpg"
-                  alt="me"
-                  width={4616} height={3462}
-                  className="rounded-full border-2 border-solid border-slate-300 w-52 h-52 object-cover object-left"
-                />
-              </a>
-            </div>
-            <div className="flex flex-row space-x-2">
-              {NAV_LINKS.map((props,i) => <NavButton key={i} {...props} />)}
-            </div>
-            <div className="flex flex-row space-x-2 h-8 justify-center items-center">
-              {SOCIAL_LINKS.map((props,i) => <SocialLink key={i} {...props} />)}
-            </div>
-          </div>
-          {children}
-        </main>
+        <BackgroundedLayout
+          bgImgSrc={'/background.jpg'}
+          bgImgAlt={'Backgound'}
+          content={(
+            <>
+              <Header />
+              <Content children={children} />
+            </>
+          )}          
+        />
       </body>
     </html>
   );
