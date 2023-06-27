@@ -9,3 +9,4 @@ This project uses NextJs and Tailwind CSS
 - [ ] Update content
 - [ ] Externalize content to markdown
 - [ ] Add Pirsch
+- [ ] Add GH Actions
