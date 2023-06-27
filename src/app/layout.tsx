@@ -85,7 +85,7 @@ export default function RootLayout({
             <div>
               <a href="/" className='block m-auto w-fit h-fit rounded-full'>
                 <Image
-                  src="/images/me.jpg"
+                  src="/me.jpg"
                   alt="me"
                   width={4616} height={3462}
                   className="rounded-full border-2 border-solid border-slate-300 w-52 h-52 object-cover object-left"
