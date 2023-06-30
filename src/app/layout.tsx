@@ -119,7 +119,9 @@ export default function RootLayout({
           content={(
             <>
               <Header />
-              <Content children={children} />
+              <Content>
+                {children}
+              </Content>
             </>
           )}          
         />
