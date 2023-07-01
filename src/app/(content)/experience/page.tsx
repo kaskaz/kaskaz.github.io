@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ContentImage from "@/app/components/ContentImage";
 
 type CardPositionProps = {
   title: string,
@@ -91,7 +91,7 @@ const CONTENT: Array<CardProps> = [
 const Card = ({imgSrc, imgAlt, imgHeight, imgWidth, positions}: CardProps) => {
   return (
     <div className="my-10">
-      <Image src={imgSrc} alt={imgAlt} width={imgWidth} height={imgHeight} className="w-40 ml-48 mb-5" />
+      <ContentImage src={imgSrc} alt={imgAlt} width={imgWidth} height={imgHeight} />
       <ul className="text-lg">
         {positions.map((p, i) => {
           return (

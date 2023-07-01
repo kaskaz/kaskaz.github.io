@@ -35,9 +35,9 @@ const SOCIAL_LINKS: Array<SocialLinkProps> = [
   {link: "https://www.linkedin.com/in/nunocascalho/", imgSrc: "/images/linkedin.png", imgAlt: "linkedin", width: 77, height: 66 }
 ];
 
-const MapIcon = () => {
+const MapIcon = ({ className }: {className: string}) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
     </svg>
   );
@@ -71,8 +71,8 @@ const Header = () => {
         target='_blank'
         className='fixed top-3.5 right-4 flex space-x-2 text-white bg-black bg-opacity-50 rounded p-1.5'
       >
-        <MapIcon />
-        <span>Sobral da Adiça, Moura (Portugal)</span>
+        <MapIcon className='w-5 h-5 lg:w-6 lg:h-6'/>
+        <span className='text-sm lg:text-base'>Sobral da Adiça, Moura (Portugal)</span>
       </a>
     </header>
   );
@@ -80,8 +80,8 @@ const Header = () => {
 
 const Content = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="fixed top-28 flex w-full ml-20 space-x-48 text-gray-500">
-      <div className="flex flex-col content-start space-y-3">
+    <main className="fixed lg:flex top-16 lg:top-28 h-full w-full lg:ml-20 lg:space-x-48 space-y-10 lg:space-y-0 text-gray-500">
+      <div className="flex-col content-start space-y-3">
         <div>
           <a href="/" className='block m-auto w-fit h-fit rounded-full'>
             <Image
@@ -89,18 +89,20 @@ const Content = ({ children }: { children: React.ReactNode }) => {
               src="/me.jpg"
               alt="me"
               width={4616} height={3462}
-              className="rounded-full border border-solid border-slate-300 w-52 h-52 object-cover object-left"
+              className="rounded-full border border-solid border-slate-300 w-36 h-36 lg:w-52 lg:h-52 object-cover object-left"
             />
           </a>
         </div>
-        <div className="flex flex-row space-x-2">
+        <div className="flex justify-center space-x-2">
           {NAV_LINKS.map((props,i) => <NavButton key={i} {...props} />)}
         </div>
-        <div className="flex flex-row space-x-2 h-8 justify-center items-center">
+        <div className="flex justify-center space-x-2 h-8 items-center">
           {SOCIAL_LINKS.map((props,i) => <SocialLink key={i} {...props} />)}
         </div>
       </div>
-      {children}
+      <div className='flex justify-center h-full w-full'>
+        {children}
+      </div>
     </main>
   );
 };
