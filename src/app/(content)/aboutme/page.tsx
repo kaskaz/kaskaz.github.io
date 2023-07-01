@@ -50,11 +50,11 @@ export default function AboutMe() {
 		<>
 			<h1 className="text-2xl font-bold mb-5">About me</h1>
 			<ul className="text-lg">
-				{CONTENT.map(entry => {
+				{CONTENT.map((entry, i) => {
 					return (
-						<li className="mb-3">
+						<li key={i} className="mb-3">
 							<h2 className="text-xl font-semibold">{entry.section}</h2>
-							{entry.description.map(text => <p className="ml-5">{text}</p>)}
+							{entry.description.map((text, k) => <p key={k} className="ml-5">{text}</p>)}
 						</li>
 					);
 				})}

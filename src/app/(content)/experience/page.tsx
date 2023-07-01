@@ -90,11 +90,11 @@ const Card = ({imgSrc, imgAlt, imgHeight, imgWidth, positions}: CardProps) => {
     <div className="my-10">
       <Image src={imgSrc} alt={imgAlt} width={imgWidth} height={imgHeight} className="w-40 ml-48 mb-5" />
       <ul className="text-lg">
-        {positions.map(p => {
+        {positions.map((p, i) => {
           return (
-            <li className="mb-3">
+            <li key={i} className="mb-3">
               <h2 className="text-xl font-semibold">{p.title}</h2>
-              {p.description.map(text =>  <p className="ml-5">{text}</p>)}
+              {p.description.map((text, k) =>  <p key={k} className="ml-5">{text}</p>)}
             </li>
           );
         })}
@@ -107,9 +107,10 @@ export default function Experience() {
   return (
 		<>
 			<h1 className="text-2xl font-bold mb-5">Experience</h1>
-      {CONTENT.map(entry => {
+      {CONTENT.map((entry, i) => {
         return (
           <Card
+            key={i}
             imgSrc={entry.imgSrc}
             imgAlt={entry.imgAlt}
             imgHeight={entry.imgHeight} 
