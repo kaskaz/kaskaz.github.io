@@ -71,8 +71,8 @@ const Header = () => {
         target='_blank'
         className='fixed top-3.5 right-4 flex space-x-2 text-white bg-black bg-opacity-50 rounded p-1.5'
       >
-        <MapIcon className='w-5 h-5 lg:w-6 lg:h-6'/>
-        <span className='text-sm lg:text-base'>Sobral da Adiça, Moura (Portugal)</span>
+        <MapIcon className='w-4 h-4 lg:w-6 lg:h-6'/>
+        <span className='text-xs lg:text-base'>Sobral da Adiça, Moura (Portugal)</span>
       </a>
     </header>
   );
