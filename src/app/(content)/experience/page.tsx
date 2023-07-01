@@ -21,10 +21,13 @@ const CONTENT: Array<CardProps> = [
     imgWidth: 1000,
     positions: [
       {
-        title: "Dec. '21 to current as Fullstack Software Developer",
+        title: "Dec. '21 to current as Backend Software Developer",
         description: [
-          "At Wizzio (Novabase product)",
-          "Webservices and Browser test automation",
+          "Development and maintenance of the Public API and new services",
+          "Backend services with Springboot, Kotlin, Hibernate and Postgres",
+          "Use of NATS/JetStream to exchange messages between services",
+          "Use of Grafana to monitor the whole Dockerized system",
+          "Use of Grafana as headless service to generate alerts based on IAQ measurements"
         ]
       }
     ]
