@@ -134,7 +134,7 @@ export default function RootLayout({
         type='text/javascript'
         src='https://api.pirsch.io/pirsch.js'
         id='pirschjs'
-        data-code='ykPUTDRXJwIW4OEi5WIdMJSi4Zei1L76'
+        data-code={process.env.NEXT_PUBLIC_PIRSCH_ID || ''}
       />
     </html>
   );
