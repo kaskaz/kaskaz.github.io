@@ -3,6 +3,7 @@ import './globals.css'
 import { Titillium_Web } from 'next/font/google'
 import Image from 'next/image';
 import BackgroundedLayout from './components/BackgroundedLayout';
+import Script from 'next/script';
 
 const font = Titillium_Web({
   weight: ['200', '300', '400', '600', '700'], 
@@ -128,6 +129,13 @@ export default function RootLayout({
           )}          
         />
       </body>
+      <Script
+        defer
+        type='text/javascript'
+        src='https://api.pirsch.io/pirsch.js'
+        id='pirschjs'
+        data-code='ykPUTDRXJwIW4OEi5WIdMJSi4Zei1L76'
+      />
     </html>
   );
 }
