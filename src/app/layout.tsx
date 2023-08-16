@@ -25,10 +25,10 @@ type SocialLinkProps = {
 }
 
 const NAV_LINKS: Array<{ name: string, link: string }> = [
-  {name: "About me", link: "aboutme"},
-  {name: "Education", link: "education"},
-  {name: "Experience", link: "experience"},
-  {name: "Projects", link: "projects"}
+  {name: "About me", link: "/aboutme"},
+  {name: "Education", link: "/education"},
+  {name: "Experience", link: "/experience"},
+  {name: "Projects", link: "/projects"}
 ];
 
 const SOCIAL_LINKS: Array<SocialLinkProps> = [
