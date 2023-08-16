@@ -7,6 +7,6 @@ This project uses NextJs and Tailwind CSS
 - [x] Improve page for mobile
 - [ ] Improve image loader (externalize url; handle missing width)
 - [x] Update content
-- [ ] Externalize content to markdown
-- [ ] Add Pirsch
-- [ ] Add GH Actions
+- [ ] Externalize content to markdown (aboutme, education and experience)
+- [x] Add Pirsch
+- [x] Add GH Actions
