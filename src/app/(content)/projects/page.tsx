@@ -11,7 +11,7 @@ export default function Projects() {
 				return (
 					<div key={key} className="mb-5">
 						<Link href={project.url} className="text-xl font-semibold">{project.title}</Link>
-						<p>{format(parseISO(project.date), 'LLLL d, yyyy')}</p>
+						<time className="block" dateTime={project.date}>{format(parseISO(project.date), 'LLLL d, yyyy')}</time>
 					</div>
 				)
 			})}
