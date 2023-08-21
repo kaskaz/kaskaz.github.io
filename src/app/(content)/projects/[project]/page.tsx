@@ -27,7 +27,7 @@ export default function Project({ params }: { params: { project: string } }) {
         <time dateTime={project.date}>{format(parseISO(project.date), 'LLLL d, yyyy')}</time>
       </div>
       <article
-        className="prose prose-xl prose-p:text-gray-500 prose-a:text-gray-600 prose-code:text-gray-600"
+        className="prose prose-lg"
         dangerouslySetInnerHTML={{ __html: project.body.html }}
       />
 		</>
