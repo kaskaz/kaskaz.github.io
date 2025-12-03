@@ -1,4 +1,4 @@
-import { allProjects } from "contentlayer/generated";
+import { allProjects } from "content-collections";
 import { compareDesc, format, parseISO } from "date-fns";
 import Link from "next/link";
 

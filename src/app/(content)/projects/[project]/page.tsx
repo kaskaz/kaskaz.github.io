@@ -1,20 +1,20 @@
-import { allProjects } from "contentlayer/generated"
+import { allProjects } from "content-collections"
 import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   return allProjects.map((project) => ({
-    project: project._raw.flattenedPath,
+    project: project._meta.path,
   }))
 }
 
 export const generateMetadata = ({ params }: { params: { project: string } }) => {
-  const project = allProjects.find((project) => project._raw.flattenedPath === params.project);
+  const project = allProjects.find((project) => project._meta.path === params.project);
   return { title: project?.title || '' }
 }
 
 export default function Project({ params }: { params: { project: string } }) {
-  const project = allProjects.find((project) => project._raw.flattenedPath === params.project)
+  const project = allProjects.find((project) => project._meta.path === params.project)
   
   if (!project) {
     notFound();
@@ -28,7 +28,7 @@ export default function Project({ params }: { params: { project: string } }) {
       </div>
       <article
         className="prose prose-lg"
-        dangerouslySetInnerHTML={{ __html: project.body.html }}
+        dangerouslySetInnerHTML={{ __html: project.html }}
       />
 		</>
   );
