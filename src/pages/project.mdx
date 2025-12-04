@@ -1,0 +1,10 @@
+import { format, parseISO } from "date-fns";
+
+<div className="mb-5">
+  <h1 className="text-2xl font-bold">{props.project.title}</h1>
+  <time dateTime={props.project.date}>{format(parseISO(props.project.date), 'LLLL d, yyyy')}</time>
+</div>
+<article
+  className="prose prose-lg"
+  dangerouslySetInnerHTML={{ __html: props.project.html }}
+/>
