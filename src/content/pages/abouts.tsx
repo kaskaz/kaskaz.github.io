@@ -3,7 +3,7 @@ type About = {
 	description: (string | React.ReactNode)[]
 }
 
-export const CONTENT: Array<About> = [
+const CONTENT: Array<About> = [
 	{
 		section: "Short bio",
 		description: [
@@ -42,3 +42,5 @@ export const CONTENT: Array<About> = [
 		]
 	}
 ];
+
+export default CONTENT;

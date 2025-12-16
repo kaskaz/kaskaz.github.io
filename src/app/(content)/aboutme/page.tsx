@@ -1,5 +1,5 @@
 import ContentImage from "@/app/components/ContentImage";
-import { CONTENT } from "@/pages/abouts";
+import CONTENT from "@/content/pages/abouts";
 import { MDXContent } from "@content-collections/mdx/react";
 import { allPages } from "content-collections";
 import { notFound } from "next/navigation";

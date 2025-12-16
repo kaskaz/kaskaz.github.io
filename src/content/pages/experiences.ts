@@ -11,7 +11,7 @@ export type CardProps = {
   positions: CardPositionProps[]
 }
 
-export const CONTENT: Array<CardProps> = [
+const CONTENT: Array<CardProps> = [
   {
     imgSrc: "/images/logo-clairify.png",
     imgAlt: "Clairify",
@@ -85,3 +85,5 @@ export const CONTENT: Array<CardProps> = [
     ]
   },
 ];
+
+export default CONTENT;

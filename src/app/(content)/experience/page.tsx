@@ -1,5 +1,5 @@
 import ContentImage from "@/app/components/ContentImage";
-import { CardProps, CONTENT } from "@/pages/experiences";
+import CONTENT, { CardProps } from "@/content/pages/experiences";
 import { MDXContent } from "@content-collections/mdx/react";
 import { allPages } from "content-collections";
 import { notFound } from "next/navigation";
