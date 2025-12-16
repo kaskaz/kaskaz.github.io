@@ -1,5 +1,5 @@
-import { allProjects } from "content-collections"
-import { format, parseISO } from "date-fns";
+import { MDXContent } from "@content-collections/mdx/react";
+import { allPages, allProjects } from "content-collections";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -14,22 +14,12 @@ export const generateMetadata = ({ params }: { params: { project: string } }) =>
 }
 
 export default function Project({ params }: { params: { project: string } }) {
-  const project = allProjects.find((project) => project._meta.path === params.project)
+  const project = allProjects.find((project) => project._meta.path === params.project);
+  const page = allPages.findLast(p => p.id == 'project');
   
-  if (!project) {
+  if (!project || !page) {
     notFound();
   }
 
-  return (
-    <>
-      <div className="mb-5">
-        <h1 className="text-2xl font-bold">{project.title}</h1>
-        <time dateTime={project.date}>{format(parseISO(project.date), 'LLLL d, yyyy')}</time>
-      </div>
-      <article
-        className="prose prose-lg"
-        dangerouslySetInnerHTML={{ __html: project.html }}
-      />
-		</>
-  );
+  return <MDXContent code={page.mdx} project={project} />;
 }

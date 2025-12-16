@@ -1,0 +1,13 @@
+<h1 className="text-2xl font-bold mb-5">Experience</h1>
+{props.experiences.map((entry, i) => {
+  return (
+    <Card
+      key={i}
+      imgSrc={entry.imgSrc}
+      imgAlt={entry.imgAlt}
+      imgHeight={entry.imgHeight} 
+      imgWidth={entry.imgWidth}
+      positions={entry.positions}        
+    />          
+  );
+})}
