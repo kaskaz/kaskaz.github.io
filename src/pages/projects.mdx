@@ -1,0 +1,15 @@
+import { compareDesc, format, parseISO } from "date-fns";
+
+<h1 className="text-2xl font-bold mb-5">Projects</h1>
+{
+  props.projects
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    .map((project, key) => {
+      return (
+        <div key={key} className="mb-5">
+          <Link href={project.url} className="text-xl font-semibold">{project.title}</Link>
+          <time className="block" dateTime={project.date}>{format(parseISO(project.date), 'LLLL d, yyyy')}</time>
+        </div>
+      )
+    })
+}
